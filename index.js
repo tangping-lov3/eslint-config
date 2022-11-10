@@ -1,5 +1,5 @@
 module.exports = {
-    extends: ['@antfu', './.eslintrc-auto-import.json'],
+    extends: ['@antfu'],
     rules: {
       'semi': [2, 'never'],
       'vue/multi-word-component-names': 0,
@@ -9,6 +9,6 @@ module.exports = {
       '@typescript-eslint/comma-dangle': ['error', 'never'],
       'no-console': 'off',
       'prefer-const': ['error', { destructuring: 'all' }],
-      'arrow-parens': ['error', 'as-needed']
+      'arrow-parens': ["error", 'as-needed']
     }
   }

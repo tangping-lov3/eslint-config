@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['@antfu', './.eslintrc-auto-import.json'],
+  extends: ['@antfu'],
   rules: {
     'semi': [2, 'never'],
     'antfu/if-newline': 0,
