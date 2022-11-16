@@ -13,6 +13,7 @@ module.exports = {
       'vue/comma-dangle': 0,
       '@typescript-eslint/brace-style': 0,
       'operator-linebreak': 0,
-      '@typescript-eslint/indent': 0
+      '@typescript-eslint/indent': 0,
+      'antfu/generic-spacing': ['never']
     }
   }
