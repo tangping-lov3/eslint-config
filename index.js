@@ -9,6 +9,10 @@ module.exports = {
       '@typescript-eslint/comma-dangle': ['error', 'never'],
       'no-console': 'off',
       'prefer-const': ['error', { destructuring: 'all' }],
-      'arrow-parens': ["error", 'as-needed']
+      'arrow-parens': ["error", 'as-needed'],
+      'vue/comma-dangle': 0,
+      '@typescript-eslint/brace-style': 0,
+      'operator-linebreak': 0,
+      '@typescript-eslint/indent': 0
     }
   }
