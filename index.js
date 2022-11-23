@@ -14,6 +14,6 @@ module.exports = {
       '@typescript-eslint/brace-style': 0,
       'operator-linebreak': 0,
       '@typescript-eslint/indent': 0,
-      'antfu/generic-spacing': ['never']
+      'antfu/generic-spacing': 0
     }
   }
