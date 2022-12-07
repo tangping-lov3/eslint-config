@@ -14,6 +14,7 @@ module.exports = {
       '@typescript-eslint/brace-style': 0,
       'operator-linebreak': 0,
       '@typescript-eslint/indent': 0,
-      'antfu/generic-spacing': 0
+      'antfu/generic-spacing': 0,
+      'vue/html-closing-bracket-newline': 0,
     }
   }
