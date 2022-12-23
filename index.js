@@ -17,6 +17,6 @@ module.exports = {
       'antfu/generic-spacing': 0,
       'vue/html-closing-bracket-newline': 0,
       'vue/v-on-event-hyphenation': 0,
-      'quote-props', 0,
+      'quote-props': 0,
     }
   }
