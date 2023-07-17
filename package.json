@@ -1,21 +1,26 @@
 {
   "name": "@tonyptang/eslint-config",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pub": "npm publish --access public"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@antfu/eslint-config": "^0.29.4"
+    "@antfu/eslint-config": "^0.29.4",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "eslint": "^8.27.0"
+    "eslint": "^8.27.0",
+    "typescript": "^5.1.6"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "baseConfig.js",
+    "utils.js"
   ]
 }
