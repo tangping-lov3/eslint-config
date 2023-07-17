@@ -18,5 +18,8 @@ module.exports = {
     'vue/html-closing-bracket-newline': 0,
     'vue/v-on-event-hyphenation': 0,
     'quote-props': 0
+  },
+  parserOptions: {
+    ecmaVersion: 'latest'
   }
 }
