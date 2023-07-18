@@ -1,3 +1,5 @@
+console.log('%c 🍭 you should install devDeps run npm i eslint typescript -D', 'font-size:20px;background-color: #ED9EC7;color:#fff;')
+
 module.exports = {
   extends: ['@antfu'],
   rules: {
