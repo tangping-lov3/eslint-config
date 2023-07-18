@@ -21,6 +21,7 @@
   "files": [
     "index.js",
     "baseConfig.js",
-    "utils.js"
+    "utils.js",
+    "prettierrc.js"
   ]
 }
