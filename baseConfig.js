@@ -1,4 +1,4 @@
-console.log('%c 🍭 you should install devDeps run npm i eslint typescript -D', 'font-size:20px;background-color: #ED9EC7;color:#fff;')
+console.log('%c 🍭 you should install devDeps run npm i eslint typescript -D', 'font-size:20px;background-color: #ED9EC7;color:yellow;')
 
 module.exports = {
   extends: ['@antfu'],
@@ -19,7 +19,8 @@ module.exports = {
     'antfu/generic-spacing': 0,
     'vue/html-closing-bracket-newline': 0,
     'vue/v-on-event-hyphenation': 0,
-    'quote-props': 0
+    'quote-props': 0,
+    'no-unused-vars': 1
   },
   parserOptions: {
     ecmaVersion: 'latest'
