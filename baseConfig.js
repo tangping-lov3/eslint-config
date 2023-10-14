@@ -20,9 +20,11 @@ module.exports = {
     'vue/html-closing-bracket-newline': 0,
     'vue/v-on-event-hyphenation': 0,
     'quote-props': 0,
-    'no-unused-vars': 1
+    'no-unused-vars': 1,
+    'no-undef': 2
   },
   parserOptions: {
     ecmaVersion: 'latest'
   }
 }
+
