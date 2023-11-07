@@ -22,6 +22,7 @@
     "index.js",
     "baseConfig.js",
     "utils.js",
-    "prettierrc.js"
+    "prettierrc.js",
+    "utils.d.ts"
   ]
 }
