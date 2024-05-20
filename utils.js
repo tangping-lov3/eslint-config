@@ -12,7 +12,8 @@ module.exports = {
       extends: _extends
     }
     if (prettier) {
-      const _prettier = typeof prettier === 'boolean' ? ['error', prettierConfig] : prettier
+      const basePrettierConfig = ['error', prettierConfig]
+      const _prettier = typeof prettier === 'boolean' ? basePrettierConfig : _.merge(basePrettierConfig, prettier)
       config.extends = _.concat(config.extends, ['plugin:prettier/recommended'])
       if (prettierVue) {
         //
