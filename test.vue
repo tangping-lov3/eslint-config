@@ -19,10 +19,16 @@ const s = getCurrentScope()
 //     return val2.toFixed(to)
 //   }
 // }
-
-[1].forEach(element => {
+const d = [1]
+d.forEach((element) => {
   console.log(element)
 })
+
+function test() {
+  if (1) {
+    console.log(1)
+  }
+}
 </script>
 
 <template>

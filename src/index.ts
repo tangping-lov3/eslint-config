@@ -1,14 +1,11 @@
-// import baseConfig from './baseConfig'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import process from 'node:process'
 import { antfu } from '@antfu/eslint-config'
 import type { ESLint } from 'eslint'
-// import eslintConfigPrettier from 'eslint-config-prettier'
-// import prettierRecommended from 'eslint-plugin-prettier/recommended'
-// import prettierrc from './prettierrc'
-
-// import { unwrapDefault } from './utils'
+import prettierRecommended from 'eslint-plugin-prettier/recommended'
+import eslintConfigPrettier from 'eslint-config-prettier'
+import prettierrc from './prettierrc'
 
 class EslintConfig implements ESLint.ConfigData {
   rules: ESLint.ConfigData['rules'] = {
@@ -22,9 +19,9 @@ class EslintConfig implements ESLint.ConfigData {
     'arrow-parens': [2, 'as-needed'],
     'vue/comma-dangle': 0,
     '@typescript-eslint/brace-style': 0,
-    'operator-linebreak': 0,
     '@typescript-eslint/indent': 0,
     'antfu/generic-spacing': 0,
+    'antfu/if-newline': 0,
     'vue/html-closing-bracket-newline': 0,
     'vue/v-on-event-hyphenation': 0,
     'quote-props': 0,
@@ -34,6 +31,8 @@ class EslintConfig implements ESLint.ConfigData {
     'style/quote-props': 0,
     'style/brace-style': 0,
     'style/indent': 0,
+    'style/operator-linebreak': 0,
+    curly: [2, 'all'],
     'style/arrow-parens': [0, 'as-needed'],
     'style/member-delimiter-style': [
       2,
@@ -55,12 +54,15 @@ class EslintConfig implements ESLint.ConfigData {
 type AntfuParams = Parameters<typeof antfu>
 
 function defineEslintConfig(
-  options: AntfuParams[0] & { autoImport?: boolean | string } = {},
+  options: AntfuParams[0] & {
+    autoImport?: boolean | string
+    prettier?: boolean
+  } = {},
   ...rest: AntfuParams[1][]
 ) {
-  // const _prettier = options.prettier ?? true
-  const _autoImport
-    = typeof options.autoImport === 'string'
+  const _prettier = options.prettier ?? true
+  const _autoImport =
+    typeof options.autoImport === 'string'
       ? options.autoImport
       : options.autoImport === true
         ? '.eslintrc-auto-import.json'
@@ -80,13 +82,13 @@ function defineEslintConfig(
     ...rest
   )
 
-  // if (_prettier) {
-  //   _antfu.append(eslintConfigPrettier, prettierRecommended, {
-  //     rules: {
-  //       'prettier/prettier': ['error', prettierrc]
-  //     }
-  //   })
-  // }
+  if (_prettier) {
+    _antfu.append(eslintConfigPrettier, prettierRecommended, {
+      rules: {
+        'prettier/prettier': ['error', prettierrc]
+      }
+    })
+  }
 
   if (_autoImport) {
     const autoImport = JSON.parse(readFileSync(join(process.cwd(), _autoImport), 'utf-8'))

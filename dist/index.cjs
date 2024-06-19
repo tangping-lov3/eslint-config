@@ -38,6 +38,55 @@ var import_node_fs = require("fs");
 var import_node_path = require("path");
 var import_node_process = __toESM(require("process"), 1);
 var import_eslint_config = require("@antfu/eslint-config");
+var import_recommended = __toESM(require("eslint-plugin-prettier/recommended"), 1);
+var import_eslint_config_prettier = __toESM(require("eslint-config-prettier"), 1);
+
+// src/prettierrc.ts
+var prettierrc_default = {
+  // 一行最多 120 字符
+  printWidth: 120,
+  // 使用 2 个空格缩进
+  tabWidth: 2,
+  // 不使用缩进符，而使用空格
+  useTabs: false,
+  // 行尾需要有分号
+  semi: false,
+  // 使用单引号
+  singleQuote: true,
+  // 对象的 key 仅在必要时用引号
+  quoteProps: "as-needed",
+  // jsx 不使用单引号，而使用双引号
+  jsxSingleQuote: false,
+  // 末尾需要有逗号
+  trailingComma: "none",
+  // 大括号内的首尾需要空格
+  bracketSpacing: true,
+  // jsx 标签的反尖括号需要换行
+  jsxBracketSameLine: false,
+  // 箭头函数，只有一个参数的时候，也需要括号
+  arrowParens: "always",
+  // 每个文件格式化的范围是文件的全部内容
+  rangeStart: 0,
+  rangeEnd: Infinity,
+  // 不需要写文件开头的 @prettier
+  requirePragma: false,
+  // 不需要自动在文件开头插入 @prettier
+  insertPragma: false,
+  // 使用默认的折行标准
+  proseWrap: "preserve",
+  // 根据显示样式决定 html 要不要折行
+  htmlWhitespaceSensitivity: "css",
+  // vue 文件中的 script 和 style 内不用缩进
+  vueIndentScriptAndStyle: false,
+  // 换行符使用 lf
+  endOfLine: "auto",
+  // 格式化嵌入的内容
+  embeddedLanguageFormatting: "auto",
+  // html, vue, jsx 中每个属性占一行
+  singleAttributePerLine: false
+};
+
+// src/index.ts
 var EslintConfig = class {
   rules = {
     semi: [2, "never"],
@@ -50,9 +99,9 @@ var EslintConfig = class {
     "arrow-parens": [2, "as-needed"],
     "vue/comma-dangle": 0,
     "@typescript-eslint/brace-style": 0,
-    "operator-linebreak": 0,
     "@typescript-eslint/indent": 0,
     "antfu/generic-spacing": 0,
+    "antfu/if-newline": 0,
     "vue/html-closing-bracket-newline": 0,
     "vue/v-on-event-hyphenation": 0,
     "quote-props": 0,
@@ -62,6 +111,8 @@ var EslintConfig = class {
     "style/quote-props": 0,
     "style/brace-style": 0,
     "style/indent": 0,
+    "style/operator-linebreak": 0,
+    curly: [2, "all"],
     "style/arrow-parens": [0, "as-needed"],
     "style/member-delimiter-style": [
       2,
@@ -80,6 +131,7 @@ var EslintConfig = class {
   };
 };
 function defineEslintConfig(options = {}, ...rest) {
+  const _prettier = options.prettier ?? true;
   const _autoImport = typeof options.autoImport === "string" ? options.autoImport : options.autoImport === true ? ".eslintrc-auto-import.json" : false;
   const _antfu = (0, import_eslint_config.antfu)(
     {
@@ -94,6 +146,13 @@ function defineEslintConfig(options = {}, ...rest) {
     },
     ...rest
   );
+  if (_prettier) {
+    _antfu.append(import_eslint_config_prettier.default, import_recommended.default, {
+      rules: {
+        "prettier/prettier": ["error", prettierrc_default]
+      }
+    });
+  }
   if (_autoImport) {
     const autoImport = JSON.parse((0, import_node_fs.readFileSync)((0, import_node_path.join)(import_node_process.default.cwd(), _autoImport), "utf-8"));
     _antfu.append({
