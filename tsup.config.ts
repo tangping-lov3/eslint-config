@@ -5,5 +5,6 @@ export default defineConfig({
   format: ['cjs', 'esm'],
   dts: true,
   clean: true,
-  cjsInterop: true
+  // cjsInterop: true,
+  shims: true
 })

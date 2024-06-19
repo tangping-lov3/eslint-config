@@ -2,7 +2,7 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import process from 'node:process'
-import antfu from '@antfu/eslint-config'
+import { antfu } from '@antfu/eslint-config'
 import type { ESLint } from 'eslint'
 // import eslintConfigPrettier from 'eslint-config-prettier'
 // import prettierRecommended from 'eslint-plugin-prettier/recommended'
@@ -53,7 +53,7 @@ class EslintConfig implements ESLint.ConfigData {
 
 type AntfuParams = Parameters<typeof antfu>
 
-function tony(
+function defineEslintConfig(
   options: AntfuParams[0] & { autoImport?: boolean | string } = {},
   ...rest: AntfuParams[1][]
 ) {
@@ -64,6 +64,7 @@ function tony(
       : options.autoImport === true
         ? '.eslintrc-auto-import.json'
         : false
+  
   const _antfu = antfu(
     {
       ...new EslintConfig(),
@@ -94,4 +95,5 @@ function tony(
   return _antfu
 }
 
-export default tony
+export default defineEslintConfig
+export { defineEslintConfig }

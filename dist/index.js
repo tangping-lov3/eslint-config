@@ -2,7 +2,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import process from "node:process";
-import antfu from "@antfu/eslint-config";
+import { antfu } from "@antfu/eslint-config";
 var EslintConfig = class {
   rules = {
     semi: [2, "never"],
@@ -43,8 +43,9 @@ var EslintConfig = class {
     ]
   };
 };
-function tony(options = {}, ...rest) {
+function defineEslintConfig(options = {}, ...rest) {
   const _autoImport = typeof options.autoImport === "string" ? options.autoImport : options.autoImport === true ? ".eslintrc-auto-import.json" : false;
+  console.log(antfu);
   const _antfu = antfu(
     {
       ...new EslintConfig(),
@@ -64,7 +65,8 @@ function tony(options = {}, ...rest) {
   }
   return _antfu;
 }
-var src_default = tony;
+var src_default = defineEslintConfig;
 export {
-  src_default as default
+  src_default as default,
+  defineEslintConfig
 };

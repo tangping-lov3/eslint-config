@@ -30,13 +30,14 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var src_exports = {};
 __export(src_exports, {
-  default: () => src_default
+  default: () => src_default,
+  defineEslintConfig: () => defineEslintConfig
 });
 module.exports = __toCommonJS(src_exports);
 var import_node_fs = require("fs");
 var import_node_path = require("path");
 var import_node_process = __toESM(require("process"), 1);
-var import_eslint_config = __toESM(require("@antfu/eslint-config"), 1);
+var import_eslint_config = require("@antfu/eslint-config");
 var EslintConfig = class {
   rules = {
     semi: [2, "never"],
@@ -77,9 +78,10 @@ var EslintConfig = class {
     ]
   };
 };
-function tony(options = {}, ...rest) {
+function defineEslintConfig(options = {}, ...rest) {
   const _autoImport = typeof options.autoImport === "string" ? options.autoImport : options.autoImport === true ? ".eslintrc-auto-import.json" : false;
-  const _antfu = (0, import_eslint_config.default)(
+  console.log(import_eslint_config.antfu);
+  const _antfu = (0, import_eslint_config.antfu)(
     {
       ...new EslintConfig(),
       vue: true,
@@ -98,4 +100,8 @@ function tony(options = {}, ...rest) {
   }
   return _antfu;
 }
-var src_default = tony;
+var src_default = defineEslintConfig;
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+  defineEslintConfig
+});
