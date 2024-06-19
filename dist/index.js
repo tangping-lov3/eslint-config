@@ -27,6 +27,7 @@ var EslintConfig = class {
     "style/quote-props": 0,
     "style/brace-style": 0,
     "style/indent": 0,
+    "style/arrow-parens": [0, "as-needed"],
     "style/member-delimiter-style": [
       2,
       {
@@ -45,7 +46,6 @@ var EslintConfig = class {
 };
 function defineEslintConfig(options = {}, ...rest) {
   const _autoImport = typeof options.autoImport === "string" ? options.autoImport : options.autoImport === true ? ".eslintrc-auto-import.json" : false;
-  console.log(antfu);
   const _antfu = antfu(
     {
       ...new EslintConfig(),

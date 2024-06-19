@@ -19,6 +19,10 @@ const s = getCurrentScope()
 //     return val2.toFixed(to)
 //   }
 // }
+
+[1].forEach(element => {
+  console.log(element)
+})
 </script>
 
 <template>
