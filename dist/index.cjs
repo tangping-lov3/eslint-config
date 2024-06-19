@@ -86,7 +86,11 @@ function defineEslintConfig(options = {}, ...rest) {
       ...new EslintConfig(),
       vue: true,
       typescript: true,
-      ...options
+      ...options,
+      formatters: {
+        css: true,
+        html: true
+      }
     },
     ...rest
   );

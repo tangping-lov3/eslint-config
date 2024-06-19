@@ -33,4 +33,11 @@ const s = getCurrentScope()
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.test {
+  a {
+    bottom: 1;
+    left: 2;
+  }
+}
+</style>
