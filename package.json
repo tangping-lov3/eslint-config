@@ -1,28 +1,41 @@
 {
   "name": "@tonyptang/eslint-config",
-  "version": "0.2.10",
+  "type": "module",
+  "version": "1.0.1",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "pub": "npm publish --access public"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@antfu/eslint-config": "^0.29.4",
-    "lodash": "^4.17.21"
-  },
-  "devDependencies": {
-    "eslint": "^8.27.0",
-    "typescript": "^5.1.6"
+  "keywords": [],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
   },
   "files": [
-    "index.js",
-    "baseConfig.js",
-    "utils.js",
-    "prettierrc.js",
-    "utils.d.ts"
-  ]
+    "dist"
+  ],
+  "scripts": {
+    "test": "eslint test.vue",
+    "pub": "npm run build && npm publish --access public",
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@antfu/eslint-config": "^2.21.1",
+    "eslint": "^9.5.0",
+    "eslint-plugin-format": "^0.1.2",
+    "lodash-es": "^4.17.21",
+    "typescript": "^5.1.6"
+  },
+  "devDependencies": {
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^20.14.4",
+    "tsup": "^8.1.0"
+  }
 }
