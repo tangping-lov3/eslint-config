@@ -139,7 +139,7 @@ function defineEslintConfig(options = {}, ...rest) {
       vue: true,
       typescript: true,
       ...options,
-      formatters: {
+      formatters: _prettier ? {} : {
         css: true,
         html: true
       }

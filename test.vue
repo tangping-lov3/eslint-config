@@ -3,32 +3,32 @@ if (1) {
   console.log(1)
 }
 
-const a = ref(1)
-const b = ref2()
-const c = computed(() => a.value + b.value)
-const s = getCurrentScope()
-// function tranValue(val, to = 0, re = '-') {
-//   const val2 = Number(val)
-//   if (Number.isNaN(val2)) {
-//     return val
-//   } else {
-//     if (val2 === 0) {
-//       return re
-//     }
+// const a = ref(1)
+// const b = ref2()
+// const c = computed(() => a.value + b.value)
+// const s = getCurrentScope()
+// // function tranValue(val, to = 0, re = '-') {
+// //   const val2 = Number(val)
+// //   if (Number.isNaN(val2)) {
+// //     return val
+// //   } else {
+// //     if (val2 === 0) {
+// //       return re
+// //     }
 
-//     return val2.toFixed(to)
+// //     return val2.toFixed(to)
+// //   }
+// // }
+// const d = [1]
+// d.forEach((element) => {
+//   console.log(element)
+// })
+
+// function test() {
+//   if (1) {
+//     console.log(1)
 //   }
 // }
-const d = [1]
-d.forEach((element) => {
-  console.log(element)
-})
-
-function test() {
-  if (1) {
-    console.log(1)
-  }
-}
 </script>
 
 <template>
@@ -44,6 +44,8 @@ function test() {
   a {
     bottom: 1;
     left: 2;
+    background: linear-gradient(138deg, rgba(0, 213, 255, 0.5), rgba(4, 52, 112, 0) 100%);
+    border-radius: 4px;
   }
 }
 </style>
