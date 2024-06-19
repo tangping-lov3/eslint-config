@@ -29,6 +29,38 @@ if (1) {
 //     console.log(1)
 //   }
 // }
+
+function addText([x, y], name, onClick) {
+  if (window.__long_map) {
+    const layer = new window.LongMap.Layer()
+    window.__long_map.addLayer(layer)
+
+    // 创建文字对象
+    const text = new window.LongMap.Text({
+      text: name,
+      position: new window.LongMap.Point3(x, y, 0),
+      color: new window.LongMap.Color('#27AEC3'),
+      scale: 2.5,
+      offset: { x: -220, y: -50 }
+    })
+
+    if (onClick) {
+      window.__long_map.addEventListener('click', (e) => {
+        for (const f of e.features) {
+          if (f === text) {
+            onClick &&
+              onClick(e, {
+                name,
+                text
+              })
+          }
+        }
+      })
+    }
+
+    layer.addFeature(text)
+  }
+}
 </script>
 
 <template>

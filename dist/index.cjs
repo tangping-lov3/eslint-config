@@ -114,6 +114,7 @@ var EslintConfig = class {
     "style/operator-linebreak": 0,
     curly: [2, "all"],
     "style/arrow-parens": [0, "as-needed"],
+    "style/indent-binary-ops": 0,
     "style/member-delimiter-style": [
       2,
       {
