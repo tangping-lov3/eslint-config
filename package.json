@@ -1,7 +1,7 @@
 {
   "name": "@tonyptang/eslint-config",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "author": "",
   "license": "ISC",
@@ -23,19 +23,18 @@
     "dev": "tsup --watch"
   },
   "peerDependencies": {
+    "eslint": "^9.0.0",
     "typescript": "^5.0.0"
   },
   "dependencies": {
     "@antfu/eslint-config": "^2.21.1",
-    "eslint": "^9.5.0",
     "eslint-plugin-format": "^0.1.2",
-    "lodash-es": "^4.17.21",
     "typescript": "^5.1.6"
   },
   "devDependencies": {
     "@types/eslint-config-prettier": "^6.11.3",
-    "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.14.4",
+    "eslint": "^9.5.0",
     "tsup": "^8.1.0"
   }
 }
